@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 10mm 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ocultar barra lateral y encabezado general del sistema */
+  aside,
+  header,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Ajustar contenedor principal al ancho completo del papel */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Asegurar que las tarjetas y tablas mantengan sus colores en papel y PDF */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Evitar quiebres feos de tablas a mitad de fila */
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
